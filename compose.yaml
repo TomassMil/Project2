@@ -54,7 +54,7 @@ services:
         container_name: pd2-phpmyadmin
         image: phpmyadmin:latest
         ports:
-            - 8080:80
+            - 8081:80
         environment:
             - TZ=UTC
             - MYSQL_ROOT_PASSWORD=root

@@ -45,7 +45,7 @@ http://localhost/
 ## Vietnes
 - Sākumlapa: [http://localhost/](http://localhost/)
 - Administrācija: [http://localhost/login](http://localhost/login)
-- Datubāzes administrācija: [http://localhost:8080/](http://localhost:8080/)
+- Datubāzes administrācija: [http://localhost:8081/](http://localhost:8081/)
 
 
 ## DB rekvizīti
