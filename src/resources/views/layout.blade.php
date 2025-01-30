@@ -30,6 +30,11 @@
                                 <a class="nav-link" href="/authors">Authors</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="/books">Books</a>
+                            </li>
+
+                            <!-- LOG OUT -->
+                            <li class="nav-item">
                                 <a class="nav-link text-danger fw-bold" href="/logout">Log out</a>
                             </li>
                         @else
