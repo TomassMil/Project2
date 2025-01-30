@@ -69,6 +69,19 @@ class BookController extends Controller implements HasMiddleware
         $book->price = $validatedData['price'];
         $book->year = $validatedData['year'];
         $book->display = (bool) ($validatedData['display'] ?? false);
+
+        if ($request->hasFile('image')) {
+            // here you can add code that deletes old image file when new one is uploaded
+            $uploadedFile = $request->file('image');
+            $extension = $uploadedFile->clientExtension();
+            $name = uniqid();
+            $book->image = $uploadedFile->storePubliclyAs(
+            '/',
+            $name . '.' . $extension,
+            'uploads'
+            );
+        }
+
         $book->save();
 
         return redirect('/books');
@@ -108,6 +121,19 @@ class BookController extends Controller implements HasMiddleware
         $book->price = $validatedData['price'];
         $book->year = $validatedData['year'];
         $book->display = (bool) ($validatedData['display'] ?? false);
+
+        if ($request->hasFile('image')) {
+            // here you can add code that deletes old image file when new one is uploaded
+            $uploadedFile = $request->file('image');
+            $extension = $uploadedFile->clientExtension();
+            $name = uniqid();
+            $book->image = $uploadedFile->storePubliclyAs(
+            '/',
+            $name . '.' . $extension,
+            'uploads'
+            );
+        }
+
         $book->save();
 
         return redirect('/books/update/' . $book->id);
@@ -116,7 +142,10 @@ class BookController extends Controller implements HasMiddleware
     // delete Book
     public function delete(Book $book): RedirectResponse
     {
-        // delete the image file too
+        if ($book->image) {
+            unlink(getcwd() . '/images/' . $book->image);
+        }
+
         $book->delete();
         return redirect('/books');
     }
