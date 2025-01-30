@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Book;
@@ -40,13 +41,15 @@ class BookController extends Controller implements HasMiddleware
     public function create(): View
     {
         $authors = Author::orderBy('name', 'asc')->get();
+        $categories = Category::orderBy('name', 'asc')->get();
 
         return view(
-            'book.form',
-            [
-            'title' => 'Add new book',
-            'book' => new Book(),
-            'authors' => $authors,
+                'book.form',
+                [
+                'title' => 'Add new book',
+                'book' => new Book(),
+                'authors' => $authors,
+                'categories' => $categories,
             ]
         );
     }
@@ -87,6 +90,7 @@ class BookController extends Controller implements HasMiddleware
     public function update(Book $book): View
     {
         $authors = Author::orderBy('name', 'asc')->get();
+        $categories = Category::orderBy('name', 'asc')->get();
 
         return view(
             'book.form',
@@ -94,6 +98,7 @@ class BookController extends Controller implements HasMiddleware
             'title' => 'Rediģēt grāmatu',
             'book' => $book,
             'authors' => $authors,
+            'categories'=> $categories
             ]
         );
     }

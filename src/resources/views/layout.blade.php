@@ -32,6 +32,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/books">Books</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/categories">Categories</a>
+                            </li>
 
                             <!-- LOG OUT -->
                             <li class="nav-item">

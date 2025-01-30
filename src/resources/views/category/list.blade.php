@@ -13,14 +13,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($items as $author)
+                @foreach($items as $category)
                 <tr>
-                    <td>{{ $author->id }}</td>
-                    <td>{{ $author->name }}</td>
+                    <td>{{ $category->id }}</td>
+                    <td>{{ $category->name }}</td>
                     <td class="text-end">
                         <div class="d-flex justify-content-end align-items-center gap-2">
-                            <a href="/authors/update/{{ $author->id }}" class="btn btn-outline-primary btn-sm">Edit</a>
-                            <form action="/authors/delete/{{ $author->id }}" method="post" class="deletionform d-inline">
+                            <a href="/categories/update/{{ $category->id }}" class="btn btn-outline-primary btn-sm">Edit</a>
+                            <form action="/categories/delete/{{ $category->id }}" method="post" class="deletionform d-inline">
                                 @csrf
                                 <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
                             </form>
@@ -34,5 +34,5 @@
         <p>No entries found in database</p>
     @endif
 
-    <a href="/authors/create" class="btn btn-primary">Add new</a>
+    <a href="/categories/create" class="btn btn-primary">Add new</a>
 @endsection
